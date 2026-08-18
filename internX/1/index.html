@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>internX - Sign In</title>
+    <link rel="stylesheet" href="style.css?V=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="left-section">
+            <div class="logo-area">
+                <div class="logo">🛡️</div>
+                <div>
+                    <h2>internX</h2>
+                    <p>Shape Your Future Today</p>
+                </div>
+            </div>
+            <h1>Welcome Back!</h1>
+            <p class="tagline">CONNECTING STUDENTS WITH DREAMS</p>
+            <div class="illustration">⚡</div>
+        </div>
+
+        <div class="right-section">
+            <div class="login-container">
+                <h1>Sign In</h1>
+                <p class="subtitle">Access your account and opportunities</p>
+                
+                <div class="login-card">
+                    <form id="loginForm">
+                        <label for="email">Email Address</label>
+                        <div class="input-box">
+                            <span>✉️</span>
+                            <input type="email" id="email" required placeholder="student@email.com">
+                        </div>
+
+                        <label for="password">Password</label>
+                        <div class="input-box">
+                            <span>🔒</span>
+                            <input type="password" id="password" required placeholder="Enter password">
+                        </div>
+
+                        <button type="submit" class="signin-btn">Sign In</button>
+                        <p class="register">Don't have an account? <a href="register.html">Create Account</a></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="toast"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-auth.js"></script>
+</body>
+</html>

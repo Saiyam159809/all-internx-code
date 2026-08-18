@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>InternX - Your Internship Journey Starts Here</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Supabase JS Client SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="brand">
+        <div class="logo-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+          </svg>
+        </div>
+        <span class="logo-text">InternX</span>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Theme Toggle Button -->
+        <button id="theme-toggle" class="btn-icon" aria-label="Toggle Theme">
+          <svg class="sun-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+          <svg class="moon-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path></svg>
+        </button>
+
+        <button class="btn-text" onclick="openAuthModal('signin')">Sign in</button>
+        <button class="btn-primary-pill" onclick="openAuthModal('register')">Get started</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      
+      <!-- Hero Content Left -->
+      <div class="hero-content">
+        <div class="badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M9 12l2 2 4-4"></path></svg>
+          <span>Privacy-first profiles</span>
+        </div>
+
+        <h1 class="hero-title">
+          Your internship journey starts with one <span class="highlight-text">complete profile</span>
+        </h1>
+
+        <p class="hero-description">
+          InternX gives students a professional profile recruiters trust, and gives companies verified profiles to hire from. Fill it once, use it everywhere.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="btn-primary-lg" onclick="openAuthModal('register')">
+            Create your profile 
+            <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+          </button>
+          <button class="btn-secondary-lg" onclick="openAuthModal('signin')">I already have an account</button>
+        </div>
+      </div>
+
+      <!-- Feature Cards Right (2x2 Grid) -->
+      <div class="features-grid">
+        
+        <div class="feature-card">
+          <div class="card-icon icon-blue">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><polyline points="17 11 19 13 23 9"></polyline></svg>
+          </div>
+          <h3>Guided profile setup</h3>
+          <p>An 8-step wizard for students and a 7-step flow for companies, with autosave at every step.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon icon-blue">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+          </div>
+          <h3>Resume & documents</h3>
+          <p>Securely upload your resume, photo, certificates and verification documents.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon icon-blue">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+          </div>
+          <h3>Completion score</h3>
+          <p>See exactly which sections are missing and how they affect your visibility.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="card-icon icon-blue">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          </div>
+          <h3>Built for matching</h3>
+          <p>Structured skills, education and preferences power skill and location based matching.</p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Target Split Section -->
+  <section class="audience-section">
+    <div class="audience-container">
+      
+      <!-- For Students -->
+      <div class="audience-card" onclick="openAuthModal('register', 'student')">
+        <div class="card-icon icon-blue">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </div>
+        <h2>For students</h2>
+        <p>Add education, skills, projects, experience and certifications. Upload your resume and share a polished profile with every application.</p>
+      </div>
+
+      <!-- For Companies -->
+      <div class="audience-card" onclick="openAuthModal('register', 'company')">
+        <div class="card-icon icon-blue">
+          <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M3 7v14M21 7v14M6 21V11M10 21V11M14 21V11M18 21V11M12 7V3H7v4"></path></svg>
+        </div>
+        <h2>For companies</h2>
+        <p>Build a credible company page, add recruiter contacts and hiring preferences, and get ready to post internships to matched students.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="brand">
+        <div class="logo-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+        </div>
+        <span class="logo-text">InternX</span>
+      </div>
+      <p class="footer-note">We collect only what is needed to match you with opportunities.</p>
+    </div>
+  </footer>
+
+  <!-- Authentication Modal (Connected to Supabase) -->
+  <div id="auth-modal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeAuthModal()">&times;</button>
+      
+      <h2 id="modal-title">Welcome back</h2>
+      <p id="modal-subtitle" class="modal-sub">Sign in to continue to your InternX dashboard.</p>
+
+      <!-- Toggle Sign In / Register -->
+      <div class="auth-tabs">
+        <button id="tab-signin" class="tab-btn active" onclick="switchAuthTab('signin')">Sign in</button>
+        <button id="tab-register" class="tab-btn" onclick="switchAuthTab('register')">Register</button>
+      </div>
+
+      <!-- Role Selector (Shown during registration) -->
+      <div id="role-selector" class="role-selector hidden">
+        <label>I am a</label>
+        <div class="role-options">
+          <button type="button" id="role-student" class="role-btn active" onclick="selectRole('student')">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            Student
+          </button>
+          <button type="button" id="role-company" class="role-btn" onclick="selectRole('company')">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 21h18M3 7v14M21 7v14M6 21V11M10 21V11M14 21V11M18 21V11M12 7V3H7v4"></path></svg>
+            Company
+          </button>
+        </div>
+      </div>
+
+      <form id="auth-form" onsubmit="handleAuthSubmit(event)">
+        <div id="name-field-group" class="field-group hidden">
+          <label>Full name <span class="req">Required</span></label>
+          <input type="text" id="auth-name" placeholder="Contact person name" />
+        </div>
+
+        <div class="field-group">
+          <label>Email <span class="req">Required</span></label>
+          <input type="email" id="auth-email" placeholder="you@example.com" required />
+        </div>
+
+        <div class="field-group">
+          <label>Password <span class="req">Required</span></label>
+          <input type="password" id="auth-password" placeholder="••••••••" required />
+          <span id="password-hint" class="field-hint hidden">At least 8 characters.</span>
+        </div>
+
+        <button type="submit" id="auth-submit-btn" class="btn-primary-full">Sign in</button>
+      </form>
+
+      <div class="divider"><span>or</span></div>
+
+      <button type="button" class="btn-google-full" onclick="handleGoogleSignIn()">
+        <svg width="18" height="18" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/></svg>
+        Continue with Google
+      </button>
+
+      <p class="modal-disclaimer">By continuing you agree that InternX stores profile information to match you with opportunities.</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

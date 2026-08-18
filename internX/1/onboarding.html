@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>internX - Complete Your Profile</title>
+    <link rel="stylesheet" href="style.css?V=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="onboarding-body">
+
+    <div class="onboarding-container">
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar" style="width: 33%;"></div>
+        </div>
+
+        <form id="onboardingForm">
+            <!-- STEP 1: PERSONAL DETAILS -->
+            <div class="form-step active-step" id="step-1">
+                <header class="onboarding-header">
+                    <h2>Hi there! 👋</h2>
+                    <h1>Let's get started</h1>
+                </header>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First name *</label>
+                        <input type="text" id="firstName" required placeholder="e.g. Rahul">
+                    </div>
+                    <div class="form-group">
+                        <label>Last name (Optional)</label>
+                        <input type="text" id="lastName" placeholder="e.g. Sharma">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="userEmail" disabled class="disabled-input">
+                </div>
+
+                <div class="form-group">
+                    <label>Contact number *</label>
+                    <div class="phone-input">
+                        <span class="country-code">+91</span>
+                        <input type="tel" id="phone" required placeholder="Mobile number">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Current city *</label>
+                    <input type="text" id="city" required placeholder="e.g. Ahmedabad">
+                </div>
+
+                <div class="form-group">
+                    <label>Gender *</label>
+                    <div class="pill-group single-select" id="genderPills">
+                        <button type="button" class="pill-btn" data-value="Female">👩 Female</button>
+                        <button type="button" class="pill-btn" data-value="Male">👨 Male</button>
+                        <button type="button" class="pill-btn" data-value="Others">🌟 Others</button>
+                    </div>
+                </div>
+
+                <button type="button" class="next-btn" onclick="goToStep(2)">Next</button>
+            </div>
+
+            <!-- STEP 2: EDUCATION DETAILS -->
+            <div class="form-step" id="step-2">
+                <header class="onboarding-header">
+                    <h2>Education background 🎓</h2>
+                    <h1>Tell us about your studies</h1>
+                </header>
+
+                <div class="form-group">
+                    <label>Type *</label>
+                    <div class="pill-group single-select" id="userTypePills">
+                        <button type="button" class="pill-btn active" data-value="College student">College student</button>
+                        <button type="button" class="pill-btn" data-value="Fresher">Fresher</button>
+                        <button type="button" class="pill-btn" data-value="Working professional">Working professional</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Course *</label>
+                    <div class="pill-group single-select" id="coursePills">
+                        <button type="button" class="pill-btn" data-value="B.Tech">B.Tech</button>
+                        <button type="button" class="pill-btn" data-value="BE">BE</button>
+                        <button type="button" class="pill-btn" data-value="B.Com">B.Com</button>
+                        <button type="button" class="pill-btn" data-value="MBA">MBA</button>
+                        <button type="button" class="pill-btn" data-value="B.A">B.A</button>
+                        <button type="button" class="pill-btn" data-value="BCA">BCA</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>College name *</label>
+                    <input type="text" id="collegeName" required placeholder="e.g. BITS Pilani">
+                </div>
+
+                <div class="form-group">
+                    <label>Stream (Optional)</label>
+                    <input type="text" id="stream" placeholder="e.g. Computer Science">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Start year *</label>
+                        <select id="startYear" required>
+                            <option value="">Choose year</option>
+                            <option value="2026">2026</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>End year *</label>
+                        <select id="endYear" required>
+                            <option value="">Choose year</option>
+                            <option value="2028">2028</option>
+                            <option value="2027">2027</option>
+                            <option value="2026">2026</option>
+                            <option value="2025">2025</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" class="back-btn" onclick="goToStep(1)">Back</button>
+                    <button type="button" class="next-btn" onclick="goToStep(3)">Next</button>
+                </div>
+            </div>
+
+            <!-- STEP 3: PREFERENCES -->
+            <div class="form-step" id="step-3">
+                <header class="onboarding-header">
+                    <h2>Your preferences 🎯</h2>
+                    <h1>What areas interest you?</h1>
+                </header>
+
+                <div class="form-group">
+                    <label>Popular career interests (Select multiple)</label>
+                    <div class="pill-group multi-select" id="interestPills">
+                        <button type="button" class="pill-btn" data-value="Web Development">Web Development +</button>
+                        <button type="button" class="pill-btn" data-value="Software Development">Software Development +</button>
+                        <button type="button" class="pill-btn" data-value="Data Science">Data Science +</button>
+                        <button type="button" class="pill-btn" data-value="UI/UX Design">UI/UX Design +</button>
+                        <button type="button" class="pill-btn" data-value="Digital Marketing">Digital Marketing +</button>
+                        <button type="button" class="pill-btn" data-value="Graphic Design">Graphic Design +</button>
+                        <button type="button" class="pill-btn" data-value="Python Development">Python Development +</button>
+                    </div>
+                </div>
+
+                <div class="btn-group">
+                    <button type="button" class="back-btn" onclick="goToStep(2)">Back</button>
+                    <button type="submit" class="submit-btn">Complete Setup 🎉</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div id="toast"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-auth.js"></script>
+</body>
+</html>

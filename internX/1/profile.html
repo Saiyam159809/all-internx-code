@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>internX - Profile Dashboard</title>
+    <link rel="stylesheet" href="style.css?V=1">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="user-avatar">👤</div>
+            <h3 id="profile-sidebar-name">Loading...</h3>
+            <p id="profile-email">email@example.com</p>
+            <button id="logoutBtn" class="logout-btn">Log Out</button>
+        </aside>
+
+        <!-- Main Dashboard View -->
+        <main class="main-content profile-grid">
+            <div class="header-card">
+                <div>
+                    <h1 id="profile-name">Student Name</h1>
+                    <p class="badge" id="profile-dept">Course / Stream</p>
+                </div>
+                <button id="editProfileBtn" class="edit-btn">Edit Profile</button>
+            </div>
+
+            <div class="details-grid">
+                <div class="detail-card">
+                    <label>College Name</label>
+                    <p id="profile-college" class="editable-field">N/A</p>
+                </div>
+
+                <div class="detail-card">
+                    <label>Contact Phone</label>
+                    <p id="profile-phone" class="editable-field">N/A</p>
+                </div>
+
+                <div class="detail-card">
+                    <label>Current City</label>
+                    <p id="profile-city" class="editable-field">N/A</p>
+                </div>
+
+                <div class="detail-card">
+                    <label>Gender</label>
+                    <p id="profile-gender" class="editable-field">N/A</p>
+                </div>
+
+                <div class="detail-card">
+                    <label>Graduation Years</label>
+                    <p id="profile-years">N/A</p>
+                </div>
+
+                <div class="detail-card full-width">
+                    <label>Career Interests</label>
+                    <p id="profile-interests" class="editable-field">N/A</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <div id="toast"></div>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-auth.js"></script>
+</body>
+</html>
