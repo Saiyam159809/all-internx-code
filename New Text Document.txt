@@ -1,0 +1,4 @@
+api
+
+areolink = aero_live_J68xliwqKVD3bhMKv7tBqnTwc7xW64BMZh56YpIRF3U
+openrouter 
